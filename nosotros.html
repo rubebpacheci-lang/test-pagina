@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHR Ingeniería SPA | Nosotros</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Nosotros Hero */
+        .nosotros-hero {
+            position: relative;
+            padding: 120px 20px;
+            text-align: center;
+            background-image: linear-gradient(to bottom, rgba(11,30,51,0.7), rgba(11,30,51,0.9)), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--color-bg-white);
+        }
+
+        .nosotros-hero h1 {
+            color: var(--color-accent);
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .nosotros-hero p {
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+
+        /* Timeline */
+        .timeline-container {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 50px;
+            padding: 0 20px;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 5%;
+            right: 5%;
+            height: 2px;
+            background-color: var(--color-accent);
+            z-index: 0;
+        }
+
+        .timeline-item {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            width: 20%;
+            background: #fff;
+        }
+
+        .timeline-icon {
+            width: 80px;
+            height: 80px;
+            background: #fff;
+            border: 2px solid var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: var(--color-primary);
+        }
+
+        .timeline-year {
+            font-weight: 800;
+            font-family: var(--font-secondary);
+            font-size: 1.2rem;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .timeline-text {
+            font-size: 0.875rem;
+            color: var(--color-text-muted);
+        }
+
+        /* Valores */
+        .valores-section {
+            background-color: var(--color-primary);
+            background-image: linear-gradient(rgba(11, 30, 51, 0.9), rgba(11, 30, 51, 0.9)), url('https://www.transparenttextures.com/patterns/cubes.png');
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .valores-section h2 {
+            color: #fff;
+        }
+
+        .valores-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .valor-item i {
+            font-size: 3rem;
+            color: var(--color-accent);
+            margin-bottom: 20px;
+        }
+
+        .valor-item h3 {
+            color: var(--color-accent);
+            margin-bottom: 15px;
+        }
+
+        .valor-item p {
+            color: #A0AAB5;
+            font-size: 0.9rem;
+        }
+
+        /* Equipo */
+        .equipo-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .miembro {
+            text-align: center;
+        }
+
+        .miembro-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 3px solid #fff;
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+        .miembro-in {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .miembro-in i {
+            position: absolute;
+            bottom: 20px;
+            right: 0;
+            background: var(--color-accent);
+            color: #fff;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            border: 2px solid #fff;
+        }
+
+        .miembro h4 {
+            color: var(--color-primary);
+            margin-bottom: 5px;
+        }
+
+        .miembro p {
+            color: var(--color-accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-container { flex-direction: column; gap: 40px; }
+            .timeline-container::before { display: none; }
+            .timeline-item { width: 100%; }
+            .valores-grid, .equipo-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">PHR<span>//</span> INGENIERÍA SPA</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">INICIO</a></li>
+                    <li><a href="nosotros.html" class="active">NOSOTROS</a></li>
+                    <li><a href="servicios.html">SERVICIOS</a></li>
+                    <li><a href="proyectos.html">PROYECTOS</a></li>
+                    <li><a href="cotizar.html" class="btn btn-accent" style="color:var(--color-bg-white);">COTIZAR</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Nosotros -->
+    <section class="nosotros-hero">
+        <div class="container">
+            <h1>Expertos en Ingeniería de Precisión.</h1>
+            <p>Más de 8 años impulsando el futuro.</p>
+        </div>
+    </section>
+
+    <!-- Trayectoria -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nuestra Trayectoria</h2>
+            </div>
+            
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-gear"></i></div>
+                    <div class="timeline-year">2015</div>
+                    <div class="timeline-text">Fundación de PHR Ingeniería, primeros proyectos en automatización.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-certificate"></i></div>
+                    <div class="timeline-year">2018</div>
+                    <div class="timeline-text">Expansión a nuevos sectores y certificación ISO 9001.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-cube"></i></div>
+                    <div class="timeline-year">2021</div>
+                    <div class="timeline-text">Innovación en diseño 3D y desarrollo de soluciones sostenibles.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-globe"></i></div>
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-text">Líderes en ingeniería avanzada, sirviendo a clientes globales.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Valores -->
+    <section class="valores-section">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 20px;">
+                <h2>Nuestros Valores Fundamentales</h2>
+            </div>
+            
+            <div class="valores-grid">
+                <div class="valor-item">
+                    <i class="fa-solid fa-ruler-combined"></i>
+                    <h3>Precisión</h3>
+                    <p>Nos dedicamos a la exactitud y el detalle en cada fase del proyecto, garantizando resultados fiables.</p>
+                </div>
+                <div class="valor-item">
+                    <i class="fa-regular fa-lightbulb"></i>
+                    <h3>Innovación</h3>
+                    <p>Fomentamos la creatividad y adaptamos nuevas tecnologías para soluciones vanguardistas.</p>
+                </div>
+                <div class="valor-item">
+                    <i class="fa-regular fa-handshake"></i>
+                    <h3>Compromiso</h3>
+                    <p>Establecemos relaciones duraderas basadas en la confianza, la integridad y la entrega puntual.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipo -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nuestro Equipo</h2>
+            </div>
+            
+            <div class="equipo-grid">
+                <div class="miembro">
+                    <div class="miembro-in">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=256&q=80" alt="Ing. Carlos Gómez" class="miembro-img">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </div>
+                    <h4>Ing. Carlos Gómez</h4>
+                    <p>Director General</p>
+                </div>
+                <div class="miembro">
+                    <div class="miembro-in">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=256&q=80" alt="Ing. Laura Díaz" class="miembro-img">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </div>
+                    <h4>Ing. Laura Díaz</h4>
+                    <p>Jefa de Proyectos</p>
+                </div>
+                <div class="miembro">
+                    <div class="miembro-in">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=256&q=80" alt="Ing. David Ruiz" class="miembro-img">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </div>
+                    <h4>Ing. David Ruiz</h4>
+                    <p>Ingeniero Estructural Senior</p>
+                </div>
+                <div class="miembro">
+                    <div class="miembro-in">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=256&q=80" alt="Ing. Ana Martínez" class="miembro-img">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </div>
+                    <h4>Ing. Ana Martínez</h4>
+                    <p>Especialista en Automatización</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer General -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top grid grid-3">
+                <div>
+                    <h4 class="logo" style="color: #fff; margin-bottom: 20px;">PHR<span style="color:var(--color-accent)">//</span> INGENIERÍA</h4>
+                    <p>Ingeniería que transforma y soluciones técnicas de vanguardia.</p>
+                </div>
+                <div>
+                    <h4>Contacto</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fa-solid fa-phone"></i> +56 9 8765 4321</li>
+                        <li><i class="fa-solid fa-globe"></i> www.phringenieria.cl</li>
+                        <li><i class="fa-solid fa-envelope"></i> proyectos@phringenieria.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Síguenos</h4>
+                    <div class="social-links" style="margin-top: 15px;">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>PHR Ingeniería · Proyectos Inicio</p>
+                <p>&copy; Copyright PHR Ingeniería.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

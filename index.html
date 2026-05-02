@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHR Ingeniería SPA | Inicio</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Specific Home Styles */
+        .home-main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: calc(100vh - 80px);
+            background-color: var(--color-bg-light);
+        }
+        
+        .hero-left {
+            position: relative;
+            padding: 80px 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-image: linear-gradient(to right, rgba(255,255,255,0.95), rgba(255,255,255,0.7)), url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-left h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--color-primary);
+        }
+
+        .hero-left p {
+            font-size: 1.5rem;
+            color: var(--color-text-muted);
+            margin-bottom: 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .hero-right {
+            padding: 60px 5%;
+            overflow-y: auto;
+            background: #ffffff;
+        }
+
+        .section-title-small {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        /* Accordion */
+        .accordion {
+            margin-bottom: 50px;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid var(--color-border);
+        }
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: #fff;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-secondary);
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--color-primary);
+            transition: var(--transition);
+        }
+
+        .accordion-header:hover {
+            background-color: var(--color-bg-light);
+        }
+
+        .accordion-header .icon {
+            color: var(--color-accent);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .accordion-content {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background-color: var(--color-bg-light);
+        }
+        
+        .accordion-content.active {
+            padding: 20px;
+            max-height: 200px; /* arbitrary max-height for animation */
+            border-top: 1px solid var(--color-border);
+        }
+
+        /* Small Project Grid */
+        .projects-grid-small {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .project-card-mini {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 150px;
+            cursor: pointer;
+        }
+
+        .project-card-mini img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card-mini:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-card-mini .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(11,30,51,0.9), rgba(11,30,51,0.1));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 15px;
+        }
+
+        .project-card-mini h4 {
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .project-card-mini p {
+            color: var(--color-accent);
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Footer override for home */
+        .footer-min {
+            background-color: var(--color-primary);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+            font-size: 0.8rem;
+        }
+        .footer-min .contact-inline {
+            display: flex;
+            gap: 30px;
+        }
+        .footer-min .contact-inline span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .footer-min .socials {
+            display: flex;
+            gap: 15px;
+        }
+        .footer-min .socials a { color: var(--color-accent); }
+
+        @media (max-width: 1024px) {
+            .home-main {
+                grid-template-columns: 1fr;
+            }
+            .hero-left h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="container" style="max-width: 95%;">
+            <a href="index.html" class="logo">PHR<span>//</span> INGENIERÍA SPA</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">INICIO</a></li>
+                    <li><a href="nosotros.html">NOSOTROS</a></li>
+                    <li><a href="servicios.html">SERVICIOS</a></li>
+                    <li><a href="proyectos.html">PROYECTOS</a></li>
+                    <li><a href="cotizar.html" class="btn btn-accent" style="color:var(--color-bg-white);">COTIZAR</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="home-main">
+        <!-- Left Column: Hero Text -->
+        <section class="hero-left">
+            <div style="position: absolute; inset: 0; background: url('https://www.transparenttextures.com/patterns/grid-me.png') repeat; opacity: 0.3; pointer-events: none;"></div>
+            <div style="position: relative; z-index: 10;">
+                <h1>INGENIERÍA QUE<br>TRANSFORMA.</h1>
+                <p>Soluciones técnicas avanzadas.</p>
+                <div class="hero-buttons">
+                    <a href="proyectos.html" class="btn" style="border: 2px solid var(--color-primary); color: var(--color-primary); border-radius: 50px; padding: 12px 30px;">VER PROYECTOS</a>
+                    <a href="cotizar.html" class="btn btn-accent" style="border-radius: 50px; padding: 12px 30px; color: #fff;">SOLICITAR COTIZACIÓN</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Column: Services & Projects -->
+        <section class="hero-right">
+            <!-- Services Accordion -->
+            <div class="mb-6">
+                <h3 class="section-title-small">NUESTROS SERVICIOS</h3>
+                <div class="accordion">
+                    <!-- Item 1 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <div class="icon">
+                                <span class="material-symbols-outlined">security</span>
+                                SEGURIDAD ELECTRÓNICA
+                            </div>
+                            <i class="fa-solid fa-chevron-down text-accent"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p class="text-sm text-muted mt-2">Sistemas de videovigilancia CCTV, control de acceso, intrusión y detección de incendios. Soluciones integrales para la protección de sus instalaciones.</p>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <div class="icon">
+                                <span class="material-symbols-outlined">bolt</span>
+                                INGENIERÍA ELÉCTRICA
+                            </div>
+                            <i class="fa-solid fa-chevron-down text-accent"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p class="text-sm text-muted mt-2">Diseño y ejecución de proyectos eléctricos en baja y media tensión, mantenimiento industrial y eficiencia energética.</p>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <div class="icon">
+                                <span class="material-symbols-outlined">router</span>
+                                REDES Y TELECOMUNICACIONES
+                            </div>
+                            <i class="fa-solid fa-chevron-down text-accent"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p class="text-sm text-muted mt-2">Implementación de infraestructura de red, fibra óptica, enlaces inalámbricos y soluciones de conectividad para empresas.</p>
+                        </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <div class="icon">
+                                <span class="material-symbols-outlined">smart_toy</span>
+                                AUTOMATIZACIÓN IOT
+                            </div>
+                            <i class="fa-solid fa-chevron-down text-accent"></i>
+                        </button>
+                        <div class="accordion-content active">
+                            <p class="text-sm text-muted mt-2 mb-2">Desarrollo de sistemas de monitoreo electrónico e IoT y automatización con soluciones tecnológicas para infraestructuras avanzadas.</p>
+                            <a href="#" style="font-size: 0.75rem; text-decoration: underline; color: var(--color-primary);">Automatización de sistemas</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Projects -->
+            <div>
+                <h3 class="section-title-small">PROYECTOS DESTACADOS</h3>
+                <div class="projects-grid-small">
+                    <!-- Project 1 -->
+                    <div class="project-card-mini">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8ed7c15944?auto=format&fit=crop&q=80" alt="Industrial Logística">
+                        <div class="overlay">
+                            <h4>Industrial Logística</h4>
+                            <p><i class="fa-solid fa-location-dot"></i> Santiago</p>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="project-card-mini">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80" alt="Comercial">
+                        <div class="overlay">
+                            <h4>Comercial comercial</h4>
+                            <p><i class="fa-solid fa-location-dot"></i> Quilicura</p>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="project-card-mini">
+                        <img src="https://images.unsplash.com/photo-1565610222536-f1d8d1542bad?auto=format&fit=crop&q=80" alt="Infraestructura">
+                        <div class="overlay">
+                            <h4>Infraestructura Planta</h4>
+                            <p><i class="fa-solid fa-location-dot"></i> Huechuraba</p>
+                        </div>
+                    </div>
+                    <!-- Project 4 -->
+                    <div class="project-card-mini">
+                        <img src="https://images.unsplash.com/photo-1541888087425-451d6c8b9d36?auto=format&fit=crop&q=80" alt="Infraestructura Red">
+                        <div class="overlay">
+                            <h4>Infraestructura Red</h4>
+                            <p><i class="fa-solid fa-location-dot"></i> Providencia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Mini Footer specifically for Home page -->
+    <footer class="footer-min">
+        <div class="contact-inline">
+            <span><i class="fa-solid fa-phone text-accent"></i> (2219) 248 5700</span>
+            <span><i class="fa-solid fa-envelope text-accent"></i> phr@ingenieria.spa</span>
+        </div>
+        <div style="display: flex; gap: 20px; align-items: center;">
+            <div class="socials">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+            <span>© 2023 PHR INGENIERÍA SPA.</span>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        // Simple accordion logic
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const allContents = document.querySelectorAll('.accordion-content');
+            
+            // Close others
+            allContents.forEach(c => {
+                if(c !== content) {
+                    c.classList.remove('active');
+                }
+            });
+            
+            // Toggle current
+            content.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

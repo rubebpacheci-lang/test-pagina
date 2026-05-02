@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHR Ingeniería SPA | Proyectos</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Proyectos Hero */
+        .proyectos-hero {
+            padding: 80px 0;
+            background-image: linear-gradient(to right, rgba(255,255,255,0.9), rgba(255,255,255,0.7)), url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .proyectos-hero h1 {
+            font-size: 3.5rem;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+
+        .proyectos-hero p {
+            font-size: 1.2rem;
+            color: var(--color-text-muted);
+        }
+
+        /* Layout */
+        .proyectos-layout {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 40px;
+            padding: 60px 0;
+        }
+
+        /* Sidebar Filters */
+        .filtros-sidebar {
+            background: #fff;
+            padding: 20px 0;
+        }
+
+        .filtros-sidebar h3 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            color: var(--color-primary);
+        }
+
+        .filtro-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            cursor: pointer;
+        }
+
+        .filtro-item input {
+            margin-right: 10px;
+            accent-color: var(--color-accent);
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .filtro-item label {
+            font-size: 0.95rem;
+            color: var(--color-text);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filtro-item:hover label {
+            color: var(--color-accent);
+        }
+
+        /* Projects Grid */
+        .proyectos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .proyecto-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid var(--color-border);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .proyecto-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+
+        .proyecto-img-container {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .proyecto-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .proyecto-card:hover .proyecto-img-container img {
+            transform: scale(1.05);
+        }
+
+        .proyecto-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(11, 30, 51, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .proyecto-card:hover .proyecto-overlay {
+            opacity: 1;
+        }
+
+        .btn-ver-detalles {
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .proyecto-info {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .proyecto-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--color-primary);
+        }
+
+        .proyecto-ubicacion {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .proyecto-ubicacion i {
+            color: var(--color-accent);
+        }
+
+        .proyecto-desc {
+            font-size: 0.85rem;
+            color: var(--color-text);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 1024px) {
+            .proyectos-grid { grid-template-columns: repeat(2, 1fr); }
+            .proyectos-layout { grid-template-columns: 200px 1fr; }
+        }
+        @media (max-width: 768px) {
+            .proyectos-layout { grid-template-columns: 1fr; }
+            .proyectos-grid { grid-template-columns: 1fr; }
+            .filtros-sidebar { border-bottom: 1px solid var(--color-border); margin-bottom: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">PHR<span>//</span> INGENIERÍA SPA</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">INICIO</a></li>
+                    <li><a href="nosotros.html">NOSOTROS</a></li>
+                    <li><a href="servicios.html">SERVICIOS</a></li>
+                    <li><a href="proyectos.html" class="active">PROYECTOS</a></li>
+                    <li><a href="cotizar.html" class="btn btn-accent" style="color:var(--color-bg-white);">COTIZAR</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="proyectos-hero">
+        <div class="container">
+            <h1>GALERÍA DE PROYECTOS</h1>
+            <p>Explora nuestra experiencia en ingeniería avanzada.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="proyectos-layout">
+            <!-- Sidebar Filtros -->
+            <aside class="filtros-sidebar">
+                <h3>Filtrar por:</h3>
+                <div class="filtro-item">
+                    <input type="checkbox" id="filtro-todos" checked>
+                    <label for="filtro-todos"><strong>Todos los Proyectos</strong></label>
+                </div>
+                <div class="filtro-item">
+                    <input type="checkbox" id="filtro-seguridad">
+                    <label for="filtro-seguridad">Seguridad Electrónica</label>
+                </div>
+                <div class="filtro-item">
+                    <input type="checkbox" id="filtro-electrica">
+                    <label for="filtro-electrica">Ingeniería Eléctrica</label>
+                </div>
+                <div class="filtro-item">
+                    <input type="checkbox" id="filtro-iot">
+                    <label for="filtro-iot">IoT</label>
+                </div>
+                <div class="filtro-item">
+                    <input type="checkbox" id="filtro-redes">
+                    <label for="filtro-redes">Redes y Telecomunicaciones</label>
+                </div>
+            </aside>
+
+            <!-- Grid de Proyectos -->
+            <div class="proyectos-grid">
+                <!-- Card 1 -->
+                <div class="proyecto-card">
+                    <div class="proyecto-img-container">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8ed7c15944?auto=format&fit=crop&q=80" alt="Centro de Distribución">
+                        <div class="proyecto-overlay">
+                            <span class="btn-ver-detalles">VER DETALLES</span>
+                        </div>
+                    </div>
+                    <div class="proyecto-info">
+                        <h4>Centro de Distribución Logística</h4>
+                        <div class="proyecto-ubicacion"><i class="fa-solid fa-location-dot"></i> Santiago, Chile</div>
+                        <p class="proyecto-desc">Implementación integral de CCTV y sistemas de control de acceso biométrico.</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="proyecto-card">
+                    <div class="proyecto-img-container">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80" alt="Comercial">
+                        <div class="proyecto-overlay">
+                            <span class="btn-ver-detalles">VER DETALLES</span>
+                        </div>
+                    </div>
+                    <div class="proyecto-info">
+                        <h4>Comercial comercial</h4>
+                        <div class="proyecto-ubicacion"><i class="fa-solid fa-location-dot"></i> Santiago, Chile</div>
+                        <p class="proyecto-desc">Implementación integral de CCTV y sistemas de control de acceso biométrico.</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="proyecto-card">
+                    <div class="proyecto-img-container">
+                        <img src="https://images.unsplash.com/photo-1565610222536-f1d8d1542bad?auto=format&fit=crop&q=80" alt="Planta Industrial">
+                        <div class="proyecto-overlay">
+                            <span class="btn-ver-detalles">VER DETALLES</span>
+                        </div>
+                    </div>
+                    <div class="proyecto-info">
+                        <h4>Infraestructura Planta</h4>
+                        <div class="proyecto-ubicacion"><i class="fa-solid fa-location-dot"></i> Quilicura, Chile</div>
+                        <p class="proyecto-desc">Proyecto de ingeniería eléctrica en media tensión para nueva planta de producción.</p>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="proyecto-card">
+                    <div class="proyecto-img-container">
+                        <img src="https://images.unsplash.com/photo-1541888087425-451d6c8b9d36?auto=format&fit=crop&q=80" alt="Red de Datos">
+                        <div class="proyecto-overlay">
+                            <span class="btn-ver-detalles">VER DETALLES</span>
+                        </div>
+                    </div>
+                    <div class="proyecto-info">
+                        <h4>Infraestructura Red</h4>
+                        <div class="proyecto-ubicacion"><i class="fa-solid fa-location-dot"></i> Providencia, Chile</div>
+                        <p class="proyecto-desc">Cableado estructurado y red de fibra óptica para oficinas corporativas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer General -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top grid grid-3">
+                <div>
+                    <h4 class="logo" style="color: #fff; margin-bottom: 20px;">PHR<span style="color:var(--color-accent)">//</span> INGENIERÍA</h4>
+                    <p>Ingeniería que transforma y soluciones técnicas de vanguardia.</p>
+                </div>
+                <div>
+                    <h4>Contacto</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fa-solid fa-phone"></i> +56 9 8765 4321</li>
+                        <li><i class="fa-solid fa-globe"></i> www.phringenieria.cl</li>
+                        <li><i class="fa-solid fa-envelope"></i> proyectos@phringenieria.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Síguenos</h4>
+                    <div class="social-links" style="margin-top: 15px;">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>PHR Ingeniería · Galería de Proyectos</p>
+                <p>&copy; Copyright PHR Ingeniería.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHR Ingeniería SPA | Seguridad Electrónica</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Servicios Header Grid */
+        .servicio-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: center;
+            padding: 60px 0;
+            background: url('https://www.transparenttextures.com/patterns/grid-me.png') repeat;
+            background-color: var(--color-bg-light);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .servicio-hero h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            color: var(--color-primary);
+        }
+
+        .servicio-features {
+            padding: 60px 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .feature-box .icon {
+            width: 60px;
+            height: 60px;
+            background-color: #EFE4CC;
+            color: var(--color-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .feature-box h4 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--color-primary);
+            text-transform: uppercase;
+        }
+
+        .feature-box p {
+            font-size: 0.875rem;
+            color: var(--color-text-muted);
+        }
+
+        /* Tabla y CTA */
+        .table-cta-section {
+            padding: 40px 0 80px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .specs-table th {
+            background-color: var(--color-primary);
+            color: #fff;
+            text-align: left;
+            padding: 15px;
+            font-family: var(--font-secondary);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .specs-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--color-border);
+            font-size: 0.9rem;
+            color: var(--color-text);
+        }
+
+        .specs-table tr:nth-child(even) {
+            background-color: var(--color-bg-light);
+        }
+
+        .cta-box {
+            background-color: var(--color-primary);
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            min-height: 200px;
+        }
+
+        @media (max-width: 1024px) {
+            .servicio-hero { grid-template-columns: 1fr; text-align: center; }
+            .servicio-hero h1 { font-size: 3rem; }
+            .servicio-features { grid-template-columns: repeat(2, 1fr); }
+            .table-cta-section { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .servicio-features { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">PHR<span>//</span> INGENIERÍA SPA</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">INICIO</a></li>
+                    <li><a href="nosotros.html">NOSOTROS</a></li>
+                    <li><a href="servicios.html" class="active">SERVICIOS</a></li>
+                    <li><a href="proyectos.html">PROYECTOS</a></li>
+                    <li><a href="cotizar.html" class="btn btn-accent" style="color:var(--color-bg-white);">COTIZAR</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Servicio -->
+    <section class="servicio-hero">
+        <div class="container flex" style="align-items: center; justify-content: space-between;">
+            <div style="flex: 1;">
+                <h1>SEGURIDAD<br>ELECTRÓNICA</h1>
+            </div>
+            <div style="flex: 1; text-align: right;">
+                <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80" alt="CCTV y Seguridad" style="border-radius: 10px; box-shadow: var(--shadow-lg); display: inline-block;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="container">
+        <div class="servicio-features">
+            <div class="feature-box">
+                <div class="icon"><i class="fa-solid fa-video"></i></div>
+                <h4>CCTV Inteligente</h4>
+                <p>Cámaras IP 4K con análisis de video embebido y soluciones avanzadas de videovigilancia.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon"><i class="fa-solid fa-border-all"></i></div>
+                <h4>Seguridad Perimetral</h4>
+                <p>Protección perimetral con barreras infrarrojas activas, análisis de video y cables sensores.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon"><i class="fa-solid fa-fingerprint"></i></div>
+                <h4>Control de Acceso</h4>
+                <p>Control de acceso biométrico con registro, cerraduras electromagnéticas y barreras vehiculares.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon"><i class="fa-solid fa-fire"></i></div>
+                <h4>Detección de Incendios</h4>
+                <p>Detección de incendios con paneles convencionales y direccionables, alertas tempranas y evacuación.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Table and CTA -->
+    <section class="container">
+        <div class="table-cta-section">
+            <div>
+                <table class="specs-table">
+                    <thead>
+                        <tr>
+                            <th>Componentes</th>
+                            <th>Especificaciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cámaras IP 4K</td>
+                            <td>4K UHD, IR Inteligente, Starlight</td>
+                        </tr>
+                        <tr>
+                            <td>Analítica de Video AI</td>
+                            <td>Detección de rostros, LPR, cruce de línea</td>
+                        </tr>
+                        <tr>
+                            <td>Sensores Infrarrojos Activos</td>
+                            <td>Sensores de haz cuádruple, 100m alcance</td>
+                        </tr>
+                        <tr>
+                            <td>Biometría / RFID</td>
+                            <td>Huella, facial, tarjetas Mifare</td>
+                        </tr>
+                        <tr>
+                            <td>Detectores de Humo y Calor</td>
+                            <td>Sistemas direccionables normados</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="cta-box">
+                <a href="cotizar.html" class="btn btn-outline-accent" style="font-size: 1.1rem; padding: 15px 30px; border-radius: 50px;">CONSULTAR CON UN EXPERTO</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer General -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top grid grid-3">
+                <div>
+                    <h4 class="logo" style="color: #fff; margin-bottom: 20px;">PHR<span style="color:var(--color-accent)">//</span> INGENIERÍA</h4>
+                    <p>Ingeniería que transforma y soluciones técnicas de vanguardia.</p>
+                </div>
+                <div>
+                    <h4>Contacto</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fa-solid fa-phone"></i> +56 9 8765 4321</li>
+                        <li><i class="fa-solid fa-globe"></i> www.phringenieria.cl</li>
+                        <li><i class="fa-solid fa-envelope"></i> proyectos@phringenieria.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Síguenos</h4>
+                    <div class="social-links" style="margin-top: 15px;">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>PHR Ingeniería · Servicios</p>
+                <p>&copy; Copyright PHR Ingeniería.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
